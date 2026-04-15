@@ -1,6 +1,6 @@
 {
   "name": "우리집 차 어디있지?",
-  "short_name": "우리차",
+  "short_name": "차어디?",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
