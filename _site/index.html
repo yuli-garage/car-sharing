@@ -413,6 +413,29 @@
         display: inline-block;
     }
 
+    .copy-btn {
+        background: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        padding: 8px 10px;
+        cursor: pointer;
+        margin-left: 5px;
+        font-size: 0.9rem;
+        transition: all 0.2s;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .copy-btn:hover {
+        background: #e5e7eb;
+        border-color: #9ca3af;
+    }
+
+    .copy-btn:active {
+        transform: scale(0.95);
+    }
+
     .logout-section {
         text-align: center;
         margin-top: 20px;
@@ -513,7 +536,12 @@
             <!-- 공유 정보 -->
             <div class="share-info" id="shareInfo">
                 <div>🔗 그룹 공유 정보</div>
-                <div class="share-code" id="displayShareCode">LOADING...</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                    <div class="share-code" id="displayShareCode">LOADING...</div>
+                    <button class="copy-btn" onclick="copyShareCode()" title="복사하기">
+                        📋
+                    </button>
+                </div>
                 <div style="font-size: 0.9rem; color: #6b7280;">이 코드와 비밀번호를 가족에게 공유하세요</div>
             </div>
 
@@ -863,6 +891,18 @@
         document.getElementById('loginSection').style.display = 'none';
         document.getElementById('appSection').style.display = 'block';
         document.getElementById('displayShareCode').textContent = currentGroup.code;
+    }
+
+    // 공유 코드 복사
+    async function copyShareCode() {
+        const code = document.getElementById('displayShareCode').textContent;
+        try {
+            await navigator.clipboard.writeText(code);
+            showNotification('공유 코드가 클립보드에 복사되었습니다.');
+        } catch (err) {
+            console.error('Failed to copy: ', err);
+            showNotification('복사에 실패했습니다.', 'error');
+        }
     }
 
     // 로그인 섹션 표시
