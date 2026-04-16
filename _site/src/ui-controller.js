@@ -39,11 +39,11 @@ export function renderCarList(cars) {
                 }
             </div>
             <div class="btn-group">
-                <button class="btn btn-primary btn-update" data-id="${car.id}">
-                    위치 ${car.location ? '수정' : '등록'}
-                </button>
                 <button class="btn btn-secondary btn-delete" data-id="${car.id}">
                     삭제
+                </button>
+                <button class="btn btn-primary btn-update" data-id="${car.id}">
+                    위치 ${car.location ? '수정' : '등록'}
                 </button>
             </div>
         `;
