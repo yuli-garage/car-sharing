@@ -19,11 +19,11 @@
 }
 
 html, body {
-    overscroll-behavior: none;
     -webkit-appearance: none;
     border: none !important;
     outline: none !important;
     overflow-x: hidden;
+    /* overscroll-behavior: none 제거하여 모바일 기본 스크롤 동작 허용 */
 }
 
 body {
@@ -33,8 +33,8 @@ body {
     color: #333;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    /* Safari 점선 표시 완전 제거 */
     overflow-x: hidden;
+    overflow-y: auto; /* 세로 스크롤 명시적 허용 */
     -webkit-overflow-scrolling: touch;
     position: relative;
 }
@@ -44,8 +44,7 @@ body {
     margin: 0 auto;
     background: #f9fafb;
     min-height: 100vh;
-    overflow: hidden;
-    /* Safari 점선 제거 핵심 */
+    /* overflow: hidden 제거 */
     border: none !important;
     outline: none !important;
     -webkit-box-shadow: none !important;
@@ -89,7 +88,6 @@ body {
 
 .main-content {
     padding: 20px;
-    overflow: hidden;
 }
 
 .login-section {
